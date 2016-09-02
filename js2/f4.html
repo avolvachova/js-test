@@ -2,15 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <div id="my-div" style="background-color:rosybrown; width: 400px; height: 300px;"></div>
 </head>
 <body>
 <script>
-    var g
-    function triangle(a, b) {
-        g = Math.sqrt(a * a + b * b);
+    function getElement() {
+        return document.getElementById('my-div')
     }
-    triangle(3, 4);
-    alert(g)
+
+    function getElementDimenitions(elem) {
+        return {
+            x: elem.offsetWidth,
+            y: elem.offsetHeight
+        }
+    }
+
+
+    function triangle(a, b) {
+        return Math.sqrt(a * a + b * b);
+    }
+
+    function showTriangleOfDiv(elem) {
+        var dim = getElementDimenitions(elem);
+        var tri = triangle(dim.x, dim.y);
+
+        alert(tri);
+    }
+
+    var elem = getElement();
+    showTriangleOfDiv(elem);
 </script>
 </body>
 </html>
