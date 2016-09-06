@@ -2,33 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <div id="my-div" style="background-color:rosybrown; width: 400px; height: 300px;"></div>
+    <div id="my-div" class="my-div"></div>
+    <link rel="stylesheet" href="js2.css">
 </head>
 <body>
+<div id="my-div" class="my-div"></div>
 <script>
+    // функция getElement ищет в документе и возвращает элемент с id = my-div
     function getElement() {
         return document.getElementById('my-div')
     }
 
-    function getElementDimenitions(elem) {
+    // функция getElementDimensions возвращает ширину и высоту элемента через переменные x и y.Входящий параметр - elem
+    function getElementDimensions(elem) {
         return {
             x: elem.offsetWidth,
             y: elem.offsetHeight
         }
     }
 
-
+    // функция triangle возвращает гипотенузу.Входящие параметры - катеты
     function triangle(a, b) {
         return Math.sqrt(a * a + b * b);
     }
 
+    // функция showTriangleOfDiv считает гипотенузу используя ширину и высоту элемента и выводит ее на экран.Входящий параметр - elem
     function showTriangleOfDiv(elem) {
-        var dim = getElementDimenitions(elem);
+        var dim = getElementDimensions(elem);
         var tri = triangle(dim.x, dim.y);
 
         alert(tri);
     }
 
+    // в глобальную переменную elem сохраняется значение дива
+    // и гипотенуза считается и выводится используя ширину и высоту дива
     var elem = getElement();
     showTriangleOfDiv(elem);
 </script>
